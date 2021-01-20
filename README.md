@@ -1,5 +1,5 @@
 # Peliculas
-Consumiendo API con KOTLIN 
+Consumiendo API con KOTLIN. 
 En esta aplicacion consumimos la API TheMovieDB con KOTLIN!!
 
 *MVVM
