@@ -1,6 +1,6 @@
 # Peliculas
 Consumiendo API con KOTLIN 
-En esta aplicacion con sumimos la API TheMovieDB con KOTLIN!!
+En esta aplicacion consumimos la API TheMovieDB con KOTLIN!!
 
 *MVVM
 *NAVIGATION COMPONENTS
