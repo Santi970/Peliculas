@@ -9,4 +9,6 @@ En esta aplicacion consumimos la API TheMovieDB con KOTLIN!!
 -CORRUTINAS
 
 Y LAS MEJORES PRACTICAS PARA UNA APLICACION MODERNA Y ROBUSTA!
-<a href="https://imgflip.com/gif/4x9o9b"><img src="https://imgflip.com/4x9o9b.gif" title= "Peliculas"/></a>
+
+
+![Peliculas](https://user-images.githubusercontent.com/69445175/107314527-8def8500-6a73-11eb-9698-f63099a11230.gif)
