@@ -13,7 +13,7 @@ import com.example.peliculas.databinding.MovieItemBinding
 class MovieAdapter (private val moviesList: List<Movie>,
                     private val itemClickListener: onMovieOnClickListener): RecyclerView.Adapter<BaseViewHolder<*>>() {
 
-    interface onMovieOnClickListener{  //Devuelve un override de la pelicula.
+    interface onMovieOnClickListener{
         fun onMovieClick(movie: Movie)
     }
 
@@ -21,7 +21,7 @@ class MovieAdapter (private val moviesList: List<Movie>,
         val itemBinding = MovieItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val holder = MoviesViewHolder(itemBinding, parent.context)
 
-        //Esta lo que hace es tomar la posicion de la lista q estoy clickeando y devolver la posicion.
+
         itemBinding.root.setOnClickListener{
             val position = holder.bindingAdapterPosition.takeIf { it != DiffUtil.DiffResult.NO_POSITION }
                 ?: return@setOnClickListener
