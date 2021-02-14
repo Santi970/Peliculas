@@ -28,7 +28,7 @@ data class MovieList(val results: List<Movie> = listOf())
 //Room
 
 @Entity
-data class MovieEntity (
+data class MovieEntity(
     @PrimaryKey
     val id: Int = -1,
     @ColumnInfo(name = "adult")
