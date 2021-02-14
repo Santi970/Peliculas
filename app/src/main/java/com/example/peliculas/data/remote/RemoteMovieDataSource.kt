@@ -5,7 +5,7 @@ import com.example.peliculas.data.model.MovieList
 import com.example.peliculas.repository.WebService
 
 
-class MovieDataSource(private val webService: WebService) {
+class RemoteMovieDataSource(private val webService: WebService) {
 
     suspend fun getUpcomingMovies(): MovieList = webService.getUpcomingMovies(Constantes.API_KEY)
 
