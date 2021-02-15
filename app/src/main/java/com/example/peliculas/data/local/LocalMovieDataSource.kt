@@ -12,7 +12,7 @@ class LocalMovieDataSource(private val movieDao: MovieDao) {
     }
 
     suspend fun getTopRatedMovies(): MovieList {
-        return movieDao.getAllMovies().filter{it.movie_type == "toprated"}.toMovieList()
+        return movieDao.getAllMovies().filter{it.movie_type == "top_rated"}.toMovieList()
     }
 
     suspend fun getPopularMovies(): MovieList {
