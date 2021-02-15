@@ -1,5 +1,6 @@
 package com.example.peliculas.repository
 
+import com.example.peliculas.core.InternetCheck
 import com.example.peliculas.data.local.LocalMovieDataSource
 import com.example.peliculas.data.model.MovieList
 import com.example.peliculas.data.model.toMovieEntity
@@ -11,25 +12,40 @@ class MovieRepositoryImpl(
 ): MovieRespository{
 
     override suspend fun getUpcomingMovies(): MovieList {
-        dataSourceRemote.getUpcomingMovies().results.forEach {movie ->
-            dataSourceLocal.saveMovie(movie.toMovieEntity("upcoming"))
+        return if (InternetCheck.isNetworkAvailable()) {
+            dataSourceRemote.getUpcomingMovies().results.forEach { movie ->
+                dataSourceLocal.saveMovie(movie.toMovieEntity("upcoming"))
+            }
+            dataSourceLocal.getUpcomingMovies()
+        } else {
+            dataSourceLocal.getUpcomingMovies()
         }
-        return dataSourceLocal.getUpcomingMovies()
+
     }
 
     override suspend fun getTopRatedMovies(): MovieList {
-        dataSourceRemote.getTopRatedMovies().results.forEach {movie ->
-            dataSourceLocal.saveMovie(movie.toMovieEntity("top_rated"))
+        return if (InternetCheck.isNetworkAvailable()) {
+            dataSourceRemote.getTopRatedMovies().results.forEach {movie ->
+                dataSourceLocal.saveMovie(movie.toMovieEntity("top_rated"))
+            }
+             dataSourceLocal.getTopRatedMovies()
+        }else{
+             dataSourceLocal.getTopRatedMovies()
         }
-        return dataSourceLocal.getTopRatedMovies()
+
     }
 
 
     override suspend fun getPopularMovies(): MovieList {
-        dataSourceRemote.getPopularMovies().results.forEach {movie ->
-            dataSourceLocal.saveMovie(movie.toMovieEntity("popular"))
+        return if (InternetCheck.isNetworkAvailable()) {
+            dataSourceRemote.getPopularMovies().results.forEach {movie ->
+                dataSourceLocal.saveMovie(movie.toMovieEntity("popular"))
+            }
+            dataSourceLocal.getPopularMovies()
+        }else{
+            dataSourceLocal.getPopularMovies()
         }
-        return dataSourceLocal.getPopularMovies()
+
     }
 }
 
