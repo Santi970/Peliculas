@@ -27,6 +27,7 @@ data class MovieList(val results: List<Movie> = listOf())
 
 //Room
 
+
 @Entity
 data class MovieEntity(
     @PrimaryKey
@@ -82,4 +83,22 @@ fun MovieEntity.toMovie(): Movie = Movie(
     this.vote_avarage,
     this.vote_count,
     this.movie_type
+)
+
+fun Movie.toMovieEntity(movieType: String): MovieEntity = MovieEntity(
+    this.id,
+    this.adult,
+    this.backdrop_path,
+    this.original_title,
+    this.original_language,
+    this.overview,
+    this.popularity,
+    this.poster_path,
+    this.release_date,
+    this.title,
+    this.video,
+    this.vote_avarage,
+    this.vote_count,
+    movie_type = movieType
+
 )
